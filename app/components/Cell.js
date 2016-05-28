@@ -7,9 +7,12 @@ class Cell extends React.Component {
     this.occupyCell = this.occupyCell.bind(this)
   }
 
-  occupyCell() {
+  occupyCell () {
     let p = this.props
-    if (!p.state.occupied[p.id] && !p.state.finished) {
+    if (p.state.turn == "HU"
+      && !p.state.occupied[p.id]
+      && !p.state.finished)
+    {
       p.acts.addOccupiedCell(p.id)
       p.acts.toggleTurn()
     }
@@ -26,7 +29,7 @@ class Cell extends React.Component {
     }
 
     if (p.state.finished) {
-      if (p.state.combination.sequence.includes(p.id))
+      if (p.state.combination.sequence.includes(String(p.id)))
       stateClass = `${stateClass} winner`
     }
 

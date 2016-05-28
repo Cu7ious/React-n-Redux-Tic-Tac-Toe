@@ -15,7 +15,7 @@ module.exports = {
 
   devServer: {
     inline: true,
-    port: process.env.PORT
+    port: 3000 || process.env.PORT
   },
 
   module: {

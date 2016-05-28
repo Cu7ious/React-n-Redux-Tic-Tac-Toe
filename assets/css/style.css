@@ -18,6 +18,7 @@ html, body {
   max-width: 960px;
   margin: 25px auto 0;
   padding: 0 40px;
+  height: 415px;
 }
 .app {
   max-width: 480px;
@@ -49,20 +50,11 @@ header h1 span {
   text-indent: 10px;
   font-family: monospace;
 }
-.socials {
-  padding-bottom: 15px;
-  margin-top: -20px;
-}
-.socials a {
-  text-decoration: none;
-  color: #000;
-  margin-top: -10px;
-  font-size: 14px;
-  opacity: .5;
-  transition: opacity .5s linear;
-}
-.socials a:hover {
-  opacity: 1;
+.github-badge {
+  width: 50px;
+  position: absolute;
+  right: 40px;
+  top: 37px;
 }
 
 /* Footer */
@@ -80,6 +72,43 @@ footer a {
 footer a:hover {
   opacity: 1;
 }
+
+.info-box {
+  padding: 20px;
+  background-color: #ebebeb;
+  width: 300px;
+  margin: 0 auto 25px;
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+  box-sizing: border-box;
+  list-style: none;
+  font: 24px monospace;
+  display: flex;
+}
+.info-box.centered {
+  display: block;
+  text-align: center;
+}
+.info-box li {
+  flex: 1;
+  text-align: center;
+}
+.info-box.cross li:first-child i ,
+.info-box.nought li:last-child i {
+  box-shadow: 0px 5px 0px #F00
+}
+.info-box span {
+  text-shadow: 0px 1px 0px #000;
+}
+.info-box span.links {
+  color: #858585;
+  cursor: pointer;
+  text-shadow: 0px 1px 0px #000;
+  transition: all .5s linear;
+}
+.info-box span.links:hover {
+  color: inherit;
+}
+
 
 .playground {
   max-width: 300px;
@@ -99,62 +128,36 @@ footer a:hover {
   line-height: 100px;
   position: relative;
 }
-
-.playground .cross::before {
-  content: "\0007C";
-  position: absolute;
-  font-size: 100px;
-  color: #F00;
-}
-.playground.horisontal .cross::before {
-  transform: rotate(90deg);
-  left: 24px;
-}
-.playground.vertical .cross::before {
-  top: -5px;
-}
-.playground.left-diagonal .cross::before {
-  transform: rotate(135.5deg);
-  font-size: 150px;
-  left: 10px;
-  top: 7px;
-}
-.playground.right-diagonal .cross::before {
-  transform: rotate(224.5deg);
-  font-size: 150px;
-  left: -3px;
-  top: 7px;
-}
+.playground .cross::before,
 .playground .nought::before {
   content: "\0007C";
   position: absolute;
   font-size: 100px;
   color: #F00;
 }
+.playground.horisontal .cross::before,
 .playground.horisontal .nought::before {
   transform: rotate(90deg);
   left: 24px;
 }
+.playground.vertical .cross::before,
 .playground.vertical .nought::before {
   top: -5px;
+  left: 19px;
 }
+.playground.left-diagonal .cross::before,
 .playground.left-diagonal .nought::before {
   transform: rotate(135.5deg);
   font-size: 150px;
   left: 10px;
   top: 7px;
 }
+.playground.right-diagonal .cross::before,
 .playground.right-diagonal .nought::before {
   transform: rotate(224.5deg);
   font-size: 150px;
   left: -3px;
   top: 7px;
-}
-.playground .playground-section.nought::after {
-  content: "\025CB";
-}
-.playground .playground-section.cross::after {
-  content: "\000D7";
 }
 .playground:not(.horisontal) .cross::before,
 .playground:not(.vertical) .cross::before,
@@ -166,7 +169,6 @@ footer a:hover {
 .playground:not(.right-diagonal) .nought::before {
   display: none;
 }
-
 .playground.horisontal .cross.winner::before,
 .playground.vertical .cross.winner::before,
 .playground.left-diagonal .cross.winner::before,
@@ -176,4 +178,29 @@ footer a:hover {
 .playground.left-diagonal .nought.winner::before,
 .playground.right-diagonal .nought.winner::before {
   display: block;
+}
+
+.playground .playground-section.nought::after {
+  content: "\025CB";
+}
+.playground .playground-section.cross::after {
+  content: "\000D7";
+}
+
+.new-game {
+  box-shadow: 3px 5px 5px #000;
+  border-radius: 60px;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+}
+.new-game button {
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+  background-color: #ebebeb;
+  font: 36px monospace;
+  border-radius: 60px;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  border: 0;
 }
